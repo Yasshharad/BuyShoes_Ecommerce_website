@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product View</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Product Details Section */
+        #product-details {
+            padding: 80px 80px 80px 80px;
+            margin: 50px;
+            border: 1px solid #000000;
+            /* Add a 1px solid border with a light gray color */
+            border-radius: 50px;
+            /* Add a border radius for a slightly rounded appearance */
+        }
+
+        #product-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #product-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+            /* Darken the title color */
+        }
+
+        #product-description {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #666;
+            /* Darken the description color */
+        }
+
+        #product-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #007bff;
+            /* Change the price color to a shade of blue */
+        }
+
+        .btn-add-to-cart {
+            background-color: #007bff;
+            /* Change the button color to match the price */
+            color: #fff;
+            /* Set text color to white */
+            border: none;
+            /* Remove border */
+            border-radius: 5px;
+            /* Add border radius */
+            padding: 10px 20px;
+            /* Add padding */
+        }
+
+        .btn-add-to-cart:hover {
+            background-color: #0056b3;
+            /* Darken the button color on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">BuyShoes</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="category.html">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about_us.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact_us.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html">My Cart</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <div class="input-group">
+                        <a class="btn btn-outline-success my-2 my-sm-0" type="button" id="searchButton"
+                            href="search.html">
+                            <i class="fas fa-search"></i>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Details -->
+    <section id="product-details" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Product Image -->
+                    <img id="product-image" class="img-fluid" alt="Product Image">
+                </div>
+                <div class="col-md-6">
+                    <!-- Product Title -->
+                    <h2 id="product-title" class="mb-4"></h2>
+                    <!-- Product Description -->
+                    <p id="product-description" class="mb-4"></p>
+                    <!-- Product Price -->
+                    <h4 id="product-price" class="mb-4"></h4>
+                    <button class="btn btn-primary btn-add-to-cart" id="btn-add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section id="related-products" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="mb-4">Related Products</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/sports1.jpg" class="card-img-top" alt="Product 1" data-category="category1"
+                            data_price="500">
+                        <div class="card-body">
+                            <h5 class="card-title">Product 1</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="card-text1">Price: ₹500</p>
+                            <button class="btn btn-primary btn-add-to-cart" data_name="Product 1" data_price="500"
+                                data_description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                data_image="images/sports1.jpg" data_quantity=1>Add to
+                                Cart</button>
+                            <a href="product_view.html?title=Product%201&description=Lorem%20ipsum%20dolor%20sit%20amet,%20consectetur%20adipiscing%20elit.&price=500&imageURL=images%2Fsports1.jpg&quantity=1"
+                                class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/sports2.jpg" class="card-img-top" alt="Product 2" data-category="category1"
+                            data_price="750">
+                        <div class="card-body">
+                            <h5 class="card-title">Product 2</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="card-text1">Price: ₹750</p>
+                            <button class="btn btn-primary btn-add-to-cart" data_name="Product 2" data_price="750"
+                                data_description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                data_image="images/sports2.jpg" data_quantity=1>Add to
+                                Cart</button>
+                            <a href="product_view.html?title=Product%202&description=Lorem%20ipsum%20dolor%20sit%20amet,%20consectetur%20adipiscing%20elit.&price=750&imageURL=images%2Fsports2.jpg&quantity=1"
+                                class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/sports3.jpg" class="card-img-top" alt="Product 3" data-category="category1"
+                            data_price="1200">
+                        <div class="card-body">
+                            <h5 class="card-title">Product 3</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="card-text1">Price: ₹1200</p>
+                            <button class="btn btn-primary btn-add-to-cart" data_name="Product 3" data_price="1200"
+                                data_description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                data_image="images/sports3.jpg" data_quantity=1>Add to
+                                Cart</button>
+                            <a href="product_view.html?title=Product%203&description=Lorem%20ipsum%20dolor%20sit%20amet,%20consectetur%20adipiscing%20elit.&price=1200&imageURL=images%2Fsports3.jpg&quantity=1"
+                                class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/casual1.jpg" class="card-img-top" alt="Product 3" data-category="category2"
+                            data_price="1000">
+                        <div class="card-body">
+                            <h5 class="card-title">Product 4</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="card-text1">Price: ₹1000</p>
+                            <button class="btn btn-primary btn-add-to-cart" data_name="Product 4" data_price="1000"
+                                data_description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                data_image="images/casual1.jpg" data_quantity=1>Add to
+                                Cart</button>
+                            <a href="product_view.html?title=Product%204&description=Lorem%20ipsum%20dolor%20sit%20amet,%20consectetur%20adipiscing%20elit.&price=1000&imageURL=images%2Fcasual1.jpg&quantity=1"
+                                class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/casual2.jpg" class="card-img-top" alt="Product 3" data-category="category2"
+                            data_price="2000">
+                        <div class="card-body">
+                            <h5 class="card-title">Product 5</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="card-text1">Price: ₹2000</p>
+                            <button class="btn btn-primary btn-add-to-cart" data_name="Product 5" data_price="2000"
+                                data_description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                data_image="images/casual2.jpg" data_quantity=1>Add to
+                                Cart</button>
+                            <a href="product_view.html?title=Product%205&description=Lorem%20ipsum%20dolor%20sit%20amet,%20consectetur%20adipiscing%20elit.&price=2000&imageURL=images%2Fcasual2.jpg&quantity=1"
+                                class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/casual3.jpg" class="card-img-top" alt="Product 3" data-category="category2"
+                            data_price="6500">
+                        <div class="card-body">
+                            <h5 class="card-title">Product 6</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="card-text1">Price: ₹6500</p>
+                            <button class="btn btn-primary btn-add-to-cart" data_name="Product 6" data_price="6500"
+                                data_description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                data_image="images/casual3.jpg" data_quantity=1>Add to
+                                Cart</button>
+                            <a href="product_view.html?title=Product%206&description=Lorem%20ipsum%20dolor%20sit%20amet,%20consectetur%20adipiscing%20elit.&price=6500&imageURL=images%2Fcasual3.jpg&quantity=1"
+                                class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/formal1.jpg" class="card-img-top" alt="Product 3" data-category="category3"
+                            data_price="1500">
+                        <div class="card-body">
+                            <h5 class="card-title">Product 7</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="card-text1">Price: ₹1500</p>
+                            <button class="btn btn-primary btn-add-to-cart" data_name="Product 7" data_price="1500"
+                                data_description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                data_image="images/formal1.jpg" data_quantity=1>Add to
+                                Cart</button>
+                            <a href="product_view.html?title=Product%207&description=Lorem%20ipsum%20dolor%20sit%20amet,%20consectetur%20adipiscing%20elit.&price=1500&imageURL=images%2Fformal1.jpg&quantity=1"
+                                class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/formal2.jpg" class="card-img-top" alt="Product 3" data-category="category3"
+                            data_price="2000">
+                        <div class="card-body">
+                            <h5 class="card-title">Product 8</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="card-text1">Price: ₹2000</p>
+                            <button class="btn btn-primary btn-add-to-cart" data_name="Product 8" data_price="2000"
+                                data_description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                data_image="images/formal2.jpg" data_quantity=1>Add to
+                                Cart</button>
+                            <a href="product_view.html?title=Product%208&description=Lorem%20ipsum%20dolor%20sit%20amet,%20consectetur%20adipiscing%20elit.&price=2000&imageURL=images%2Fformal2.jpg&quantity=1"
+                                class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/formal3.jpg" class="card-img-top" alt="Product 3" data-category="category3"
+                            data_price="5000">
+                        <div class="card-body">
+                            <h5 class="card-title">Product 9</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="card-text1">Price: ₹5000</p>
+                            <button class="btn btn-primary btn-add-to-cart" data_name="Product 9" data_price="5000"
+                                data_description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                data_image="images/formal3.jpg" data_quantity=1>Add to
+                                Cart</button>
+                            <a href="product_view.html?title=Product%209&description=Lorem%20ipsum%20dolor%20sit%20amet,%20consectetur%20adipiscing%20elit.&price=5000&imageURL=images%2Fformal3.jpg&quantity=1"
+                                class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/boot1.jpg" class="card-img-top" alt="Product 1" data-category="category4"
+                            data_price="500">
+                        <div class="card-body">
+                            <h5 class="card-title">Product 10</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="card-text1">Price: ₹500</p>
+                            <button class="btn btn-primary btn-add-to-cart" data_name="Product 10" data_price="500"
+                                data_description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                data_image="images/boot1.jpg" data_quantity=1>Add to
+                                Cart</button>
+                            <a href="product_view.html?title=Product%2010&description=Lorem%20ipsum%20dolor%20sit%20amet,%20consectetur%20adipiscing%20elit.&price=500&imageURL=images%2Fboot1.jpg&quantity=1"
+                                class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/boot2.jpg" class="card-img-top" alt="Product 2" data-category="category4"
+                            data_price="750">
+                        <div class="card-body">
+                            <h5 class="card-title">Product 11</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="card-text1">Price: ₹750</p>
+                            <button class="btn btn-primary btn-add-to-cart" data_name="Product 11" data_price="750"
+                                data_description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                data_image="images/boot2.jpg" data_quantity=1>Add to
+                                Cart</button>
+                            <a href="product_view.html?title=Product%2011&description=Lorem%20ipsum%20dolor%20sit%20amet,%20consectetur%20adipiscing%20elit.&price=750&imageURL=images%2Fboot2.jpg&quantity=1"
+                                class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/boot3.jpg" class="card-img-top" alt="Product 3" data-category="category4"
+                            data_price="1200">
+                        <div class="card-body">
+                            <h5 class="card-title">Product 12</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="card-text1">Price: ₹1200</p>
+                            <button class="btn btn-primary btn-add-to-cart" data_name="Product 12" data_price="1200"
+                                data_description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                data_image="images/boot3.jpg" data_quantity=1>Add to
+                                Cart</button>
+                            <a href="product_view.html?title=Product%2012&description=Lorem%20ipsum%20dolor%20sit%20amet,%20consectetur%20adipiscing%20elit.&price=1200&imageURL=images%2Fboot3.jpg&quantity=1"
+                                class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/flipflop1.jpg" class="card-img-top" alt="Product 3" data-category="category5"
+                            data_price="500">
+                        <div class="card-body">
+                            <h5 class="card-title">Product 13</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="card-text1">Price: ₹500</p>
+                            <button class="btn btn-primary btn-add-to-cart" data_name="Product 13" data_price="500"
+                                data_description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                data_image="images/flipflop1.jpg" data_quantity=1>Add to
+                                Cart</button>
+                            <a href="product_view.html?title=Product%2013&description=Lorem%20ipsum%20dolor%20sit%20amet,%20consectetur%20adipiscing%20elit.&price=500&imageURL=images%2Fflipflop1.jpg&quantity=1"
+                                class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/flipflop2.jpg" class="card-img-top" alt="Product 3" data-category="category5"
+                            data_price="700">
+                        <div class="card-body">
+                            <h5 class="card-title">Product 14</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="card-text1">Price: ₹700</p>
+                            <button class="btn btn-primary btn-add-to-cart" data_name="Product 14" data_price="700"
+                                data_description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                data_image="images/flipflop2.jpg" data_quantity=1>Add to
+                                Cart</button>
+                            <a href="product_view.html?title=Product%2014&description=Lorem%20ipsum%20dolor%20sit%20amet,%20consectetur%20adipiscing%20elit.&price=700&imageURL=images%2Fflipflop2.jpg&quantity=1"
+                                class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/flipflop3.jpg" class="card-img-top" alt="Product 3" data-category="category5"
+                            data_price="500">
+                        <div class="card-body">
+                            <h5 class="card-title">Product 15</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="card-text1">Price: ₹500</p>
+                            <button class="btn btn-primary btn-add-to-cart" data_name="Product 15" data_price="500"
+                                data_description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                data_image="images/flipflop3.jpg" data_quantity=1>Add to
+                                Cart</button>
+                            <a href="product_view.html?title=Product%2015&description=Lorem%20ipsum%20dolor%20sit%20amet,%20consectetur%20adipiscing%20elit.&price=500&imageURL=images%2Fflipflop3.jpg&quantity=1"
+                                class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/sandals1.jpg" class="card-img-top" alt="Product 1" data-category="category6"
+                            data_price="500">
+                        <div class="card-body">
+                            <h5 class="card-title">Product 16</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="card-text1">Price: ₹500</p>
+                            <button class="btn btn-primary btn-add-to-cart" data_name="Product 16" data_price="500"
+                                data_description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                data_image="images/sandals1.jpg" data_quantity=1>Add to
+                                Cart</button>
+                            <a href="product_view.html?title=Product%2016&description=Lorem%20ipsum%20dolor%20sit%20amet,%20consectetur%20adipiscing%20elit.&price=500&imageURL=images%2Fsandals1.jpg&quantity=1"
+                                class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/sandals2.jpg" class="card-img-top" alt="Product 2" data-category="category6"
+                            data_price="750">
+                        <div class="card-body">
+                            <h5 class="card-title">Product 17</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="card-text1">Price: ₹750</p>
+                            <button class="btn btn-primary btn-add-to-cart" data_name="Product 17" data_price="750"
+                                data_description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                data_image="images/sandals2.jpg" data_quantity=1>Add to
+                                Cart</button>
+                            <a href="product_view.html?title=Product%2017&description=Lorem%20ipsum%20dolor%20sit%20amet,%20consectetur%20adipiscing%20elit.&price=750&imageURL=images%2Fsandals2.jpg&quantity=1"
+                                class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/sandals3.jpg" class="card-img-top" alt="Product 3" data-category="category6"
+                            data_price="1200">
+                        <div class="card-body">
+                            <h5 class="card-title">Product 18</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="card-text1">Price: ₹1200</p>
+                            <button class="btn btn-primary btn-add-to-cart" data_name="Product 18" data_price="1200"
+                                data_description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                data_image="images/sandals3.jpg" data_quantity=1>Add to
+                                Cart</button>
+                            <a href="product_view.html?title=Product%2018&description=Lorem%20ipsum%20dolor%20sit%20amet,%20consectetur%20adipiscing%20elit.&price=1200&imageURL=images%2Fsandals3.jpg&quantity=1"
+                                class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer" class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Contact Us</h4>
+                    <p>Email: contact@example.com</p>
+                    <p>Phone: +1234567890</p>
+                </div>
+                <div class="col-md-6">
+                    <h4>Follow Us</h4>
+                    <!-- Add social media icons -->
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+                <div class="border-top">
+                    <h6 class="text-center mt-3">Copyright ©2024 BuyShoes-Yash Harad
+                    </h6>
+                </div>
+                <a id="myBtn" href="#" title="Go to top"><i class="fas fa-arrow-up"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Function to get URL parameters
+            function getUrlParameter(name) {
+                name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                var results = regex.exec(location.search);
+                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+            }
+
+            // Get product details from URL parameters
+            var title = getUrlParameter('title');
+            var description = getUrlParameter('description');
+            var price = getUrlParameter('price');
+            var imageURL = getUrlParameter('imageURL');
+
+            // Update product details on the page
+            document.getElementById('product-image').src = imageURL; // Set the image source correctly
+            document.getElementById('product-title').innerText = title;
+            document.getElementById('product-description').innerText = description;
+            document.getElementById('product-price').innerText = "Price: ₹" + price;
+
+            // Assign product details to the Add to Cart button data attributes
+            var addToCartButton = document.getElementById('btn-add-to-cart');
+            addToCartButton.setAttribute('data-name', title);
+            addToCartButton.setAttribute('data-price', price);
+            addToCartButton.setAttribute('data-description', description);
+            addToCartButton.setAttribute('data-image', imageURL);
+            addToCartButton.setAttribute('data-quantity', 1); // Assuming default quantity is 1
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const addToCartButton = document.getElementById("btn-add-to-cart");
+
+            addToCartButton.addEventListener("click", function () {
+                const name = this.getAttribute("data-name");
+                const price = parseFloat(this.getAttribute("data-price"));
+                const description = this.getAttribute("data-description");
+                const image = this.getAttribute("data-image");
+                const quantity = parseInt(this.getAttribute("data-quantity"));
+
+                // Get existing cart items from localStorage
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+                // Add new item to cart
+                const newItem = {
+                    name: name,
+                    price: price,
+                    description: description,
+                    image: image,
+                    quantity: quantity
+                };
+                cart.push(newItem);
+
+                // Save updated cart back to localStorage
+                localStorage.setItem('cart', JSON.stringify(cart));
+
+                // Optional: Log the updated cart to console
+                console.log("Cart updated:", cart);
+                alert("Product added to cart successfully.")
+            });
+        });
+    </script>
+
+</body>
+
+</html>
